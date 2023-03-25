@@ -51,6 +51,12 @@ namespace Meltdown
             if (IsGrounded())
             {
                 _isJumpPerformed = true;
+                
+                Vector3 currentScale = Player.GetColliderTransform().GetChild(0).localScale;
+                currentScale.y = 1f;
+                Player.GetColliderTransform()
+                    .GetChild(0)
+                    .localScale = currentScale;
 
                 AnimationController.Jump();
 

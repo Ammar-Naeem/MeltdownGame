@@ -12,7 +12,7 @@ namespace Meltdown
         {
             base.Enter(baseStateMachine, playerObject);
             
-            Debug.Log("In JumpInAir state");
+            Debug.Log("In JumpAfter state");
         }
 
         public override void LogicUpdate()
@@ -45,6 +45,9 @@ namespace Meltdown
 
         public override void Exit()
         {
+            Player.GetColliderTransform()
+                .GetChild(0)
+                .localScale = Player.GetColliderChildSizeAtStart();
         }
         
         private bool IsGrounded()

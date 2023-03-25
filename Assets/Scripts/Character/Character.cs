@@ -1,4 +1,5 @@
 using System;
+using MyNamespace;
 using UnityEngine;
 
 namespace Meltdown
@@ -18,6 +19,7 @@ namespace Meltdown
         //Local References
         private Rigidbody _characterRigidbody;
         private Vector3 _colliderSizeAtStart;
+        private Vector3 _colliderChildSizeAtStart;
 
         //State controller
         protected IBaseStateMachine CharacterPhysicalStateMachine;
@@ -33,6 +35,7 @@ namespace Meltdown
         //Colliders
         public Transform GetColliderTransform() => colliderTransform;
         public Vector3 GetColliderSizeAtStart() => _colliderSizeAtStart;
+        public Vector3 GetColliderChildSizeAtStart() => _colliderChildSizeAtStart;
 
         private void Start()
         {
@@ -49,6 +52,8 @@ namespace Meltdown
             CharacterPhysicalStateMachine = new PlayerPhysicalStateMachine(gameObject);
 
             _colliderSizeAtStart = colliderTransform.localScale;
+            _colliderChildSizeAtStart = colliderTransform.GetChild(0)
+                .localScale;
         }
 
         private void Update()
@@ -61,5 +66,9 @@ namespace Meltdown
             CharacterPhysicalStateMachine.GetCurrentState().PhysicsUpdate();
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            Debugger.DebugLog("Collided with " + other.gameObject.name);
+        }
     }
 }
