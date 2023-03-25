@@ -57,7 +57,7 @@ namespace Meltdown
             Ray ray = new Ray(origin, Vector3.down);
             Debug.DrawRay(origin, Vector3.down * 0.5f, Color.green, 50);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 0.5f, LayerHelper.GetGroundLayerMask()))
+            if (Physics.Raycast(ray, out RaycastHit hit, 0.5f, LayerHelper.GetStandLayerMask()))
             {
                 return true;
             }

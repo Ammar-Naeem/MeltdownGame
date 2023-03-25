@@ -6,9 +6,9 @@ namespace Meltdown
 {
     public static class LayerHelper
     {
-        public static int GetGroundLayerMask()
+        public static int GetStandLayerMask()
         {
-            return 1 << LayerMask.NameToLayer("Ground");
+            return 1 << LayerMask.NameToLayer("Stand");
         }
     }
 }
