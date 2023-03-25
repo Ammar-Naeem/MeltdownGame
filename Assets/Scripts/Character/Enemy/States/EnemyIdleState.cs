@@ -16,12 +16,12 @@ namespace Meltdown
         public override void LogicUpdate()
         {
             if (Vector3.Dot(Enemy.transform.forward, 
-                Enemy.RideCylinderReference.TopCylinder.transform.forward) < -0.9f)
+                Enemy.RideCylinderReference.TopCylinder.transform.up) < -0.9f)
             {
                 PerformCrouch();
             }
             else if (Vector3.Dot(Enemy.transform.forward, 
-                Enemy.RideCylinderReference.BottomCylinder.transform.forward) < -0.9f)
+                Enemy.RideCylinderReference.BottomCylinder.transform.up) < -0.9f)
             {
                 PerformJump();
             }
