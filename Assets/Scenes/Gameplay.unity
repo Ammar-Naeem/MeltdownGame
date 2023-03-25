@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d8e3b3bbfed4abcb987d93987361e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rideController: {fileID: 0}
+  rideController: {fileID: 1851752052}
   characterParent: {fileID: 1195348876}
   playerPrefab: {fileID: 4505583643356362305, guid: 17d34c8c9ac4a4a4eacf3e3ac36bbbf8, type: 3}
   enemyPrefab: {fileID: 4505583643356362305, guid: 97928f8247b774b96ad3151b2a3fcd52, type: 3}
