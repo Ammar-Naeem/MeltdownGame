@@ -6,9 +6,9 @@ namespace Meltdown
     {
         private const float MoveSpeed = 0;
         
-        public override void Enter(IBaseStateMachine baseStateMachine, GameObject playerObject)
+        public override void Enter(IBaseStateMachine baseStateMachine, GameObject enemyObject)
         {
-            base.Enter(baseStateMachine, playerObject);
+            base.Enter(baseStateMachine, enemyObject);
             
             AnimationController.Idle();
         }
