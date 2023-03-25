@@ -8,12 +8,16 @@ namespace Meltdown
         [Header("Movement Values:")] 
         [SerializeField]                     private float _jumpForce     = 5    ;
         [SerializeField]                     private float _maxSpeed      = 5;
+
+        [Header("Collision Values:")] [SerializeField]
+        private Transform colliderTransform;
         
         //Controllers
         private CharacterAnimationController _characterAnimationController;
         
         //Local References
         private Rigidbody _characterRigidbody;
+        private Vector3 _colliderSizeAtStart;
 
         //State controller
         protected IBaseStateMachine CharacterPhysicalStateMachine;
@@ -25,6 +29,10 @@ namespace Meltdown
         public float GetJumpForce() => _jumpForce;
         public float GetMaxSpeed() => _maxSpeed;
         public Vector3 GetCharacterPositionInWorld() => transform.position;
+        
+        //Colliders
+        public Transform GetColliderTransform() => colliderTransform;
+        public Vector3 GetColliderSizeAtStart() => _colliderSizeAtStart;
 
         private void Start()
         {
@@ -39,6 +47,8 @@ namespace Meltdown
             _characterAnimationController = new CharacterAnimationController(characterAnimator);
 
             CharacterPhysicalStateMachine = new PlayerPhysicalStateMachine(gameObject);
+
+            _colliderSizeAtStart = colliderTransform.localScale;
         }
 
         private void Update()

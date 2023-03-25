@@ -30,14 +30,25 @@ namespace Meltdown
 
         public override void Exit()
         {
+            Player.GetColliderTransform()
+                .localScale = Player.GetColliderSizeAtStart();
         }
 
         private void PlayCrouch()
         {
             AnimationController.Crouch();
-            
+            UpdateScaleOfCollider();
         }
-        
+
+        private void UpdateScaleOfCollider()
+        {
+            Vector3 currentScale = Player.GetColliderTransform()
+                .localScale;
+            currentScale.y = 0.4f;
+            Player.GetColliderTransform()
+                .localScale = currentScale;
+        }
+
         private void ChangeStateToIdle()
         {
             BaseStateMachine.ChangeState(Player.GetPlayerStateFactory()
