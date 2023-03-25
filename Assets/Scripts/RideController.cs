@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RideController : MonoBehaviour
+namespace Meltdown
 {
-    [SerializeField] private float speed = 5;
-
-    // Update is called once per frame
-    void Update()
+    public class RideController : MonoBehaviour
     {
-        transform.Rotate(Vector3.up * (speed * Time.deltaTime));
+        [SerializeField] private float speed = 5;
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.Rotate(Vector3.up * (speed * Time.deltaTime));
+        }
     }
 }
