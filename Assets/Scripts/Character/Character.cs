@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Meltdown
@@ -24,8 +25,12 @@ namespace Meltdown
         public float GetJumpForce() => _jumpForce;
         public float GetMaxSpeed() => _maxSpeed;
         public Vector3 GetCharacterPositionInWorld() => transform.position;
-        
-        
+
+        private void Start()
+        {
+            Initialize();
+        }
+
         public virtual void Initialize()
         {
             Animator characterAnimator  = GetComponentInChildren<Animator>();

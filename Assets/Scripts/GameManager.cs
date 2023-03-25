@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Transform characterParent;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject enemyPrefab;
 
@@ -21,12 +22,14 @@ public class GameManager : MonoBehaviour
     private void InstantiateAllCharacters()
     {
         InstantiatePlayer();
-        InstantiateEnemies();
+        // InstantiateEnemies();
     }
 
     private void InstantiatePlayer()
     {
-        Character character = Instantiate(playerPrefab, playerSpawnPoint).GetComponent<Player>();
+        Character character = Instantiate(playerPrefab, playerSpawnPoint.transform.position + 
+                                                        new Vector3(0, 0.1f, 0), Quaternion.identity , 
+            characterParent).GetComponent<Player>();
         AddToCharacterList(character);
     }
 
