@@ -6,8 +6,8 @@ namespace Meltdown
     {
         private readonly Animator _characterAnimator;
 
-        private readonly int _animatorIdleValue = Animator.StringToHash("Idle");
-        private readonly int _animatorJumpValue = Animator.StringToHash("Junp");
+        private readonly int _animatorIdleValue = Animator.StringToHash("idle");
+        private readonly int _animatorJumpValue = Animator.StringToHash("jump");
         private readonly int _animatorCrouchValue = Animator.StringToHash("crouch");
         
         public CharacterAnimationController(Animator animator)
@@ -17,7 +17,7 @@ namespace Meltdown
 
         public void Idle()
         {
-            
+            _characterAnimator.SetTrigger(_animatorIdleValue);
         }
 
         public void Jump()
@@ -27,7 +27,7 @@ namespace Meltdown
 
         public void Crouch()
         {
-            
+            _characterAnimator.SetTrigger(_animatorCrouchValue);
         }
     }
 }
