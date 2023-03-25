@@ -24,6 +24,16 @@ namespace Meltdown
 
         public override void PhysicsUpdate()
         {
+            if (!_isJumpPerformed)
+            {
+                return;
+            }
+
+            if (PlayerRigidbody.velocity.y < 0)
+            {
+                // ChangeStateToIdle();
+                ChangeStateToJumpInAirState();
+            }
         }
 
 
@@ -44,7 +54,8 @@ namespace Meltdown
 
                 AnimationController.Jump();
 
-                Player.StartCoroutine(PerformJumpCoroutine());
+                PlayerRigidbody
+                    .AddForce(Vector3.up * Player.GetJumpForce(), ForceMode.Impulse);
             }
             else
             {
@@ -65,17 +76,6 @@ namespace Meltdown
             }
 
             return false;
-        }
-
-        private IEnumerator PerformJumpCoroutine()
-        {
-            PlayerRigidbody
-                .AddForce(Vector3.up * Player.GetJumpForce(), ForceMode.Impulse);
-
-            yield return new WaitForSeconds(0.5f);
-
-            // ChangeStateToIdle();
-            ChangeStateToJumpInAirState();
         }
 
         private void ChangeStateToIdle()

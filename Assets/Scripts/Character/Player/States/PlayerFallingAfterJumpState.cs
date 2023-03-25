@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Meltdown
 {
-    public class PlayerJumpInAirState : PlayerBaseState
+    public class PlayerFallingAfterJumpState : PlayerBaseState
     {
         private Camera _playerCamera;
         private Vector3 _forceDirection;

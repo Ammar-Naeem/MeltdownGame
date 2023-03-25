@@ -11,8 +11,8 @@ namespace Meltdown
         {
             _playerIdleState = new PlayerIdleState();
             _playerJumpState = new PlayerJumpState();
-            _playerJumpInAirState = new PlayerJumpInAirState();
-            _playerCrouchState = new PlayerJumpInAirState();
+            _playerJumpInAirState = new PlayerFallingAfterJumpState();
+            _playerCrouchState = new PlayerFallingAfterJumpState();
         }
         
         public IBaseState GetPlayerIdleState()
