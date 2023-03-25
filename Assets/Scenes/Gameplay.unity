@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418156732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128935215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stand1_PlayerSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +1057,7 @@ GameObject:
   - component: {fileID: 1981393489}
   - component: {fileID: 1981393488}
   - component: {fileID: 1981393490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
