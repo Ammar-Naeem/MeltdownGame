@@ -4,19 +4,18 @@ namespace Meltdown
 {
     public class Enemy : Character
     {
-        // //State controller
-        // private readonly PlayerStateFactory _playerStateFactory = new PlayerStateFactory();
-        //
-        // //Getters
-        // public PlayerStateFactory GetPlayerStateFactory() => _playerStateFactory;
-        //
-        // public override void Initialize()
-        // {
-        //     base.Initialize();
-        //     
-        //     CharacterPhysicalStateMachine.ChangeState(_playerStateFactory.GetPlayerIdleState());
-        // }
-        //
+        //State controller
+        private readonly EnemyStateFactory _enemyStateFactory = new EnemyStateFactory();
+        
+        //Getters
+        public EnemyStateFactory GetEnemyStateFactory() => _enemyStateFactory;
+        
+        public override void Initialize()
+        {
+            base.Initialize();
+            
+            CharacterPhysicalStateMachine.ChangeState(_enemyStateFactory.GetPlayerIdleState());
+        }
 
     }
 }

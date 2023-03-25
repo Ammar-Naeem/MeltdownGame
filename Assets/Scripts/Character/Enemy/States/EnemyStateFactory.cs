@@ -1,21 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Meltdown
 {
-    public class EnemyStateFactory : MonoBehaviour
+    public class EnemyStateFactory
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private IBaseState _enemyIdleState;
+        private IBaseState _enemyJumpState;
+        private IBaseState _enemyJumpInAirState;
+        private IBaseState _enemyCrouchState;
         
+        public EnemyStateFactory()
+        {
+            _enemyIdleState      = new EnemyIdleState();
+            _enemyJumpState      = new EnemyJumpState();
+            _enemyJumpInAirState = new EnemyFallingAfterJumpState();
+            _enemyCrouchState    = new EnemyCrouchState();
+        }
+        
+        public IBaseState GetEnemyIdleState()
+        {
+            return _enemyIdleState;
+        }
+        
+        public IBaseState GetEnemyJumpState()
+        {
+            return _enemyJumpState;
+        }
+        
+        public IBaseState GetEnemyJumpInAirState()
+        {
+            return _enemyJumpInAirState;
         }
 
-        // Update is called once per frame
-        void Update()
+        public IBaseState GetEnemyCrouchState()
         {
-        
+            return _enemyCrouchState;
         }
     }
 }
