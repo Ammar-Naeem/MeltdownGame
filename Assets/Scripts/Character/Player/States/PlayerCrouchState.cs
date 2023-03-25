@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MyNamespace;
 using UnityEngine;
 
 namespace Meltdown
@@ -10,6 +11,8 @@ namespace Meltdown
         {
             base.Enter(baseStateMachine, playerObject);
 
+            Debugger.DebugLog("In crouch state");
+            
             PlayCrouch();
         }
 
