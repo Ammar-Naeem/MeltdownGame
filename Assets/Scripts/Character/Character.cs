@@ -69,6 +69,11 @@ namespace Meltdown
         private void OnCollisionEnter(Collision other)
         {
             Debugger.DebugLog("Collided with " + other.gameObject.name);
+
+            if (other.gameObject.CompareTag("Ride"))
+            {
+                _characterRigidbody.constraints = RigidbodyConstraints.None;
+            }
         }
     }
 }

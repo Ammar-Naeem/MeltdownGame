@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 1851752053}
   m_Layer: 0
   m_Name: Ride
-  m_TagString: Untagged
+  m_TagString: Ride
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
