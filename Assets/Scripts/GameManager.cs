@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < enemySpawnPoints.Length; i++)
         {
             Character character = Instantiate(enemyPrefab, enemySpawnPoints[i].transform.position + 
-                                                           new Vector3(0, 0.1f, 0), Quaternion.identity , 
+                                                           new Vector3(0, 0.1f, 0), Quaternion.LookRotation(enemySpawnPoints[i]
+                                                           .forward), 
                 characterParent).GetComponent<Enemy>();
             AddToCharacterList(character);
         }
