@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("References:")] [SerializeField]
+    private RideController rideController;
+    
+    [Header("Data:")]
     [SerializeField] private Transform characterParent;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject enemyPrefab;
@@ -41,6 +45,8 @@ public class GameManager : MonoBehaviour
                                                            new Vector3(0, 0.1f, 0), Quaternion.LookRotation(enemySpawnPoints[i]
                                                            .forward), 
                 characterParent).GetComponent<Enemy>();
+
+            character.RideCylinderReference = rideController.GetRideCylinderReference();
             AddToCharacterList(character);
         }
     }

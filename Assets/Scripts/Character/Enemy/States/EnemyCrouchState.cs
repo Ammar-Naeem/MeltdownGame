@@ -18,7 +18,8 @@ namespace Meltdown
 
         public override void LogicUpdate()
         {
-            if (Input.GetKeyUp(KeyCode.DownArrow))
+            if (Vector3.Dot(Enemy.transform.forward, 
+                Enemy.RideCylinderReference.TopCylinder.transform.forward) > -0.8f)
             {
                 ChangeStateToIdle();
             }

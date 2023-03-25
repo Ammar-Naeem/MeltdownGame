@@ -8,10 +8,17 @@ namespace Meltdown
 {
     public class RideController : MonoBehaviour
     {
+        [Header("References:")] [SerializeField]
+        private RideCylinderReference rideCylinderReference;
+        
+        [Header("Data:")]
         [SerializeField] private float speed = 5;
         [SerializeField] private float maximumVelocity = 5;
 
         private Rigidbody _rigidbody;
+        
+        //Getters
+        public RideCylinderReference GetRideCylinderReference() => rideCylinderReference;
 
         private void Awake()
         {

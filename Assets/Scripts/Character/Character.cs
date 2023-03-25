@@ -20,6 +20,7 @@ namespace Meltdown
         private Rigidbody _characterRigidbody;
         private Vector3 _colliderSizeAtStart;
         private Vector3 _colliderChildSizeAtStart;
+        private RideCylinderReference _rideCylinderReference;
 
         //State controller
         protected IBaseStateMachine CharacterPhysicalStateMachine;
@@ -36,6 +37,13 @@ namespace Meltdown
         public Transform GetColliderTransform() => colliderTransform;
         public Vector3 GetColliderSizeAtStart() => _colliderSizeAtStart;
         public Vector3 GetColliderChildSizeAtStart() => _colliderChildSizeAtStart;
+        
+        //Setters
+        public RideCylinderReference RideCylinderReference
+        {
+            set => _rideCylinderReference = value;
+            get => _rideCylinderReference;
+        }
 
         private void Start()
         {
