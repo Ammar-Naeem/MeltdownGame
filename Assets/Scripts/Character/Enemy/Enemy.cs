@@ -14,7 +14,7 @@ namespace Meltdown
         {
             base.Initialize();
             
-            CharacterPhysicalStateMachine.ChangeState(_enemyStateFactory.GetPlayerIdleState());
+            CharacterPhysicalStateMachine.ChangeState(_enemyStateFactory.GetEnemyIdleState());
         }
 
     }
