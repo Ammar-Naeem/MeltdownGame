@@ -9,21 +9,36 @@ namespace Meltdown
         public override void Enter(IBaseStateMachine baseStateMachine, GameObject playerObject)
         {
             base.Enter(baseStateMachine, playerObject);
+
+            PlayCrouch();
         }
 
         public override void LogicUpdate()
         {
-            throw new System.NotImplementedException();
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                ChangeStateToIdle();
+            }
         }
 
         public override void PhysicsUpdate()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void Exit()
         {
-            throw new System.NotImplementedException();
+        }
+
+        private void PlayCrouch()
+        {
+            AnimationController.Crouch();
+            
+        }
+        
+        private void ChangeStateToIdle()
+        {
+            BaseStateMachine.ChangeState(Player.GetPlayerStateFactory()
+                .GetPlayerIdleState());
         }
     }
 }

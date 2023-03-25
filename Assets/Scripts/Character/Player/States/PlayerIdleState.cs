@@ -21,6 +21,10 @@ namespace Meltdown
             {
                 PerformJump();
             }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                PerformCrouch();
+            }
         }
 
         public override void PhysicsUpdate()
@@ -34,6 +38,11 @@ namespace Meltdown
         private void PerformJump()
         {
             BaseStateMachine.ChangeState(Player.GetPlayerStateFactory().GetPlayerJumpState());
+        }
+        
+        private void PerformCrouch()
+        {
+            BaseStateMachine.ChangeState(Player.GetPlayerStateFactory().GetPlayerCrouchState());
         }
     }
 }

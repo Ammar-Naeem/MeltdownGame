@@ -12,7 +12,7 @@ namespace Meltdown
             _playerIdleState = new PlayerIdleState();
             _playerJumpState = new PlayerJumpState();
             _playerJumpInAirState = new PlayerFallingAfterJumpState();
-            _playerCrouchState = new PlayerFallingAfterJumpState();
+            _playerCrouchState = new PlayerCrouchState();
         }
         
         public IBaseState GetPlayerIdleState()
@@ -28,6 +28,11 @@ namespace Meltdown
         public IBaseState GetPlayerJumpInAirState()
         {
             return _playerJumpInAirState;
+        }
+
+        public IBaseState GetPlayerCrouchState()
+        {
+            return _playerCrouchState;
         }
     }
 }
