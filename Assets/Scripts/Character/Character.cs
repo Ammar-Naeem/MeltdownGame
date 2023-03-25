@@ -4,9 +4,6 @@ namespace Meltdown
 {
     public class Character : MonoBehaviour, IInitializer
     {
-        [Header("References:")]
-        [SerializeField] protected GameObject _characterPrefab;
-        
         [Header("Movement Values:")] 
         [SerializeField]                     private float _jumpForce     = 5    ;
         [SerializeField]                     private float _maxSpeed      = 5;
@@ -32,8 +29,6 @@ namespace Meltdown
         
         public virtual void Initialize()
         {
-            _instantiatedCharacterObject = InstantiateCharacterObject();
-
             Animator characterAnimator  = _instantiatedCharacterObject.GetComponent<Animator>();
             _characterRigidbody = _instantiatedCharacterObject.GetComponent<Rigidbody>();
             
@@ -50,11 +45,6 @@ namespace Meltdown
         private void FixedUpdate()
         {
             CharacterPhysicalStateMachine.GetCurrentState().PhysicsUpdate();
-        }
-
-        private GameObject InstantiateCharacterObject()
-        {
-            return _characterPrefab == null ? null : Instantiate(_characterPrefab);
         }
 
     }

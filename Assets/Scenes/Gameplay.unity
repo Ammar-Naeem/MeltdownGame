@@ -446,6 +446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d8e3b3bbfed4abcb987d93987361e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 0}
+  playerSpawnPoint: {fileID: 0}
+  enemySpawnPoints: []
 --- !u!1 &418156731
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347940897}
   - component: {fileID: 1347940898}
+  - component: {fileID: 1347940899}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -635,6 +640,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &1347940899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347940896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef542e3d375f413f9500084e22d5e5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterPrefab: {fileID: 0}
+  _jumpForce: 5
+  _maxSpeed: 5
 --- !u!1 &1381899553
 GameObject:
   m_ObjectHideFlags: 0
