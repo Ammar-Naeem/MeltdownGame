@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,20 @@ namespace Meltdown
     {
         [SerializeField] private float speed = 5;
 
-        // Update is called once per frame
-        void Update()
+        private Rigidbody _rigidbody;
+
+        private void Awake()
         {
-            transform.Rotate(Vector3.up * (speed * Time.deltaTime));
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            _rigidbody.inertiaTensorRotation = Quaternion.identity;
+            // _rigidbody.position = Vector3.zero;
+            _rigidbody.AddTorque(transform.up * speed, ForceMode.Force);
+            // transform.Rotate(Vector3.up * (speed * Time.deltaTime));
         }
     }
 }
