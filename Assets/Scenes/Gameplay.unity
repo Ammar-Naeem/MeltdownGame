@@ -604,9 +604,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterParent: {fileID: 1195348876}
   playerPrefab: {fileID: 4505583643356362305, guid: 17d34c8c9ac4a4a4eacf3e3ac36bbbf8, type: 3}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 4505583643356362305, guid: 97928f8247b774b96ad3151b2a3fcd52, type: 3}
   playerSpawnPoint: {fileID: 1128935215}
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - {fileID: 849720244}
+  - {fileID: 540616027}
+  - {fileID: 676022315}
+  - {fileID: 228323059}
+  - {fileID: 552610039}
+  - {fileID: 1110002284}
+  - {fileID: 19175994}
 --- !u!1 &418156731
 GameObject:
   m_ObjectHideFlags: 0

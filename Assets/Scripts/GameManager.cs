@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void InstantiateAllCharacters()
     {
         InstantiatePlayer();
-        // InstantiateEnemies();
+        InstantiateEnemies();
     }
 
     private void InstantiatePlayer()
@@ -37,8 +37,9 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < enemySpawnPoints.Length; i++)
         {
-            Character character = Instantiate(playerPrefab, enemySpawnPoints[i])
-                .GetComponent<Player>();
+            Character character = Instantiate(enemyPrefab, enemySpawnPoints[i].transform.position + 
+                                                           new Vector3(0, 0.1f, 0), Quaternion.identity , 
+                characterParent).GetComponent<Enemy>();
             AddToCharacterList(character);
         }
     }
