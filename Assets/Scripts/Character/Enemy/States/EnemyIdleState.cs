@@ -1,21 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Meltdown
 {
-    public class EnemyIdleState : MonoBehaviour
+    public class EnemyIdleState : EnemyBaseState
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private const float MoveSpeed = 0;
         
+        public override void Enter(IBaseStateMachine baseStateMachine, GameObject playerObject)
+        {
+            base.Enter(baseStateMachine, playerObject);
+            
+            AnimationController.Idle();
         }
 
-        // Update is called once per frame
-        void Update()
+        public override void LogicUpdate()
         {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                PerformJump();
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                PerformCrouch();
+            }
+        }
+
+        public override void PhysicsUpdate()
+        {
+        }
+
+        public override void Exit()
+        {
+        }
+
+        private void PerformJump()
+        {
+            BaseStateMachine.ChangeState(Enemy.GetEnemyStateFactory().GetEnemyJumpState());
+        }
         
+        private void PerformCrouch()
+        {
+            BaseStateMachine.ChangeState(Enemy.GetEnemyStateFactory().GetEnemyCrouchState());
         }
     }
 }
