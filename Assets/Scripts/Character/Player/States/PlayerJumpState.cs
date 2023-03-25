@@ -54,8 +54,7 @@ namespace Meltdown
 
         private bool IsGrounded()
         {
-            Vector3 origin = Player.GetCharacterObject()
-                .transform.position + Vector3.up * 0.25f;
+            Vector3 origin = Player.GetCharacterPositionInWorld() + Vector3.up * 0.25f;
 
             Ray ray = new Ray(origin, Vector3.down);
             Debug.DrawRay(origin, Vector3.down * 0.5f, Color.green, 50);

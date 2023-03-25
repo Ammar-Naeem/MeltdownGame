@@ -13,7 +13,6 @@ namespace Meltdown
         
         //Local References
         private Rigidbody _characterRigidbody;
-        private GameObject _instantiatedCharacterObject;
 
         //State controller
         protected IBaseStateMachine CharacterPhysicalStateMachine;
@@ -21,16 +20,16 @@ namespace Meltdown
         //Getters
         public CharacterAnimationController GetCharacterAnimationController() => _characterAnimationController;
         public Rigidbody GetCharacterRigidbody() => _characterRigidbody;
-        public GameObject GetCharacterObject() => _instantiatedCharacterObject;
         
         public float GetJumpForce() => _jumpForce;
         public float GetMaxSpeed() => _maxSpeed;
+        public Vector3 GetCharacterPositionInWorld() => transform.position;
         
         
         public virtual void Initialize()
         {
-            Animator characterAnimator  = _instantiatedCharacterObject.GetComponent<Animator>();
-            _characterRigidbody = _instantiatedCharacterObject.GetComponent<Rigidbody>();
+            Animator characterAnimator  = GetComponentInChildren<Animator>();
+            _characterRigidbody = GetComponent<Rigidbody>();
             
             _characterAnimationController = new CharacterAnimationController(characterAnimator);
 
