@@ -19,25 +19,18 @@ namespace Meltdown
         public void Idle()
         {
             ResetAllTriggers();
-
-            Debugger.DebugLog("Idle animation plyaing");
             _characterAnimator.SetTrigger(_animatorIdleValue);
         }
 
         public void Jump()
         {
             ResetAllTriggers();
-
-            Debugger.DebugLog("Jump animation plyaing");
-
             _characterAnimator.SetTrigger(_animatorJumpValue);
         }
 
         public void Crouch()
         {
             ResetAllTriggers();
-            Debugger.DebugLog("Crouch animation plyaing");
-
             _characterAnimator.SetTrigger(_animatorCrouchValue);
         }
 
