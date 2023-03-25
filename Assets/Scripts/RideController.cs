@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyNamespace;
 using UnityEngine;
 
 namespace Meltdown
@@ -8,6 +9,7 @@ namespace Meltdown
     public class RideController : MonoBehaviour
     {
         [SerializeField] private float speed = 5;
+        [SerializeField] private float maximumVelocity = 5;
 
         private Rigidbody _rigidbody;
 
@@ -23,6 +25,8 @@ namespace Meltdown
             // _rigidbody.position = Vector3.zero;
             _rigidbody.AddTorque(transform.up * speed, ForceMode.Force);
             // transform.Rotate(Vector3.up * (speed * Time.deltaTime));
+
+            _rigidbody.maxAngularVelocity = maximumVelocity;
         }
     }
 }
