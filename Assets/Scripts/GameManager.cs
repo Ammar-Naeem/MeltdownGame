@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
                                                         new Vector3(0, 0.1f, 0), Quaternion.identity , 
             characterParent).GetComponent<Player>();
         AddToCharacterList(character);
+        
+        InitializeCharacter(character);
     }
 
     private void InstantiateEnemies()
@@ -60,7 +62,14 @@ public class GameManager : MonoBehaviour
 
             character.RideCylinderReference = rideController.GetRideCylinderReference();
             AddToCharacterList(character);
+            
+            InitializeCharacter(character);
         }
+    }
+    
+    private void InitializeCharacter(Character character)
+    {
+        character.Initialize(this);
     }
 
     private void AddToCharacterList(Character character)
