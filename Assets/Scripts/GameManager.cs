@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private static void CallEndGame()
+    private void CallEndGame()
     {
         OnGameEnd?.Invoke();
         Time.timeScale = 0;
