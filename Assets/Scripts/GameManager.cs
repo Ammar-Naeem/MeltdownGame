@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meltdown;
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Debug")] [SerializeField] private bool addPlayer = true;
     [SerializeField] private int maximumCharactersToAdd = 8;
+
+    public static Action OnGameEnd;
+    
     // Start is called before the first frame update
     void Start()
     {
