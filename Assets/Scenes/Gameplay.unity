@@ -615,6 +615,8 @@ MonoBehaviour:
   - {fileID: 552610039}
   - {fileID: 1110002284}
   - {fileID: 19175994}
+  addPlayer: 0
+  maximumCharactersToAdd: 1
 --- !u!1 &418156731
 GameObject:
   m_ObjectHideFlags: 0

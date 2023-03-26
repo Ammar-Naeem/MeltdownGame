@@ -15,13 +15,19 @@ namespace Meltdown
 
         public override void LogicUpdate()
         {
+            var enemyForward = Enemy.transform.forward;
+            float withTopCyclinderDotProduct = Vector3.Dot(enemyForward,
+                Enemy.RideCylinderReference.TopCylinder.transform.up);
+            float withBottomCyclinderDotProduct = Vector3.Dot(enemyForward, 
+                Enemy.RideCylinderReference.BottomCylinder.transform.up);
+            
             if (Vector3.Dot(Enemy.transform.forward, 
-                Enemy.RideCylinderReference.TopCylinder.transform.up) < -0.9f)
+                Enemy.RideCylinderReference.TopCylinder.transform.up) < -Enemy.GetCharacterForseeRatio())
             {
                 PerformCrouch();
             }
             else if (Vector3.Dot(Enemy.transform.forward, 
-                Enemy.RideCylinderReference.BottomCylinder.transform.up) < -0.9f)
+                Enemy.RideCylinderReference.BottomCylinder.transform.up) < -Enemy.GetCharacterForseeRatio())
             {
                 PerformJump();
             }

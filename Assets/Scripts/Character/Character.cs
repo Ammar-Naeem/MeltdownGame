@@ -13,6 +13,8 @@ namespace Meltdown
         [Header("Collision Values:")] [SerializeField]
         private Transform colliderTransform;
         
+        [Header("AI")] [SerializeField] private float characterForseeRatio = 0.95f;
+        
         //Controllers
         private CharacterAnimationController _characterAnimationController;
         
@@ -32,6 +34,8 @@ namespace Meltdown
         public float GetJumpForce() => _jumpForce;
         public float GetMaxSpeed() => _maxSpeed;
         public Vector3 GetCharacterPositionInWorld() => transform.position;
+
+        public float GetCharacterForseeRatio() => characterForseeRatio;
         
         //Colliders
         public Transform GetColliderTransform() => colliderTransform;

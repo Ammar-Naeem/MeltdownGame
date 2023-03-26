@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform[] enemySpawnPoints;
     
     List<Character> _characters = new List<Character>();
+
+    [Header("Debug")] [SerializeField] private bool addPlayer = true;
+    [SerializeField] private int maximumCharactersToAdd = 8;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,11 @@ public class GameManager : MonoBehaviour
 
     private void InstantiateAllCharacters()
     {
-        InstantiatePlayer();
+        if (addPlayer)
+        {
+            InstantiatePlayer();
+        }
+
         InstantiateEnemies();
     }
 
@@ -39,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void InstantiateEnemies()
     {
-        for (int i = 0; i < enemySpawnPoints.Length; i++)
+        for (int i = 0; i < enemySpawnPoints.Length &&  i < maximumCharactersToAdd; i++)
         {
             Character character = Instantiate(enemyPrefab, enemySpawnPoints[i].transform.position + 
                                                            new Vector3(0, 0.1f, 0), Quaternion.LookRotation(enemySpawnPoints[i]
@@ -53,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     private void AddToCharacterList(Character character)
     {
-        
+        _characters.Add(character);
     }
 
     
