@@ -1,3 +1,4 @@
+using MyNamespace;
 using UnityEngine;
 
 namespace Meltdown
@@ -5,32 +6,48 @@ namespace Meltdown
     public class EnemyIdleState : EnemyBaseState
     {
         private const float MoveSpeed = 0;
+        private float _previousDotProductWithTopCyclinder;
+        private float _previousDotProductWithBottomCyclinder;
         
         public override void Enter(IBaseStateMachine baseStateMachine, GameObject enemyObject)
         {
             base.Enter(baseStateMachine, enemyObject);
             
             AnimationController.Idle();
+
+            _previousDotProductWithTopCyclinder = GetDotProductWithTopCyclinder();
+            _previousDotProductWithBottomCyclinder = GetDotProductWithBottomCyclinder();
         }
 
         public override void LogicUpdate()
         {
-            var enemyForward = Enemy.transform.forward;
-            float withTopCyclinderDotProduct = Vector3.Dot(enemyForward,
-                Enemy.RideCylinderReference.TopCylinder.transform.up);
-            float withBottomCyclinderDotProduct = Vector3.Dot(enemyForward, 
-                Enemy.RideCylinderReference.BottomCylinder.transform.up);
+
+            float currentDotProductWithTopCylinder = GetDotProductWithTopCyclinder();
+            float currentDotProductWithBottomCylinder = GetDotProductWithBottomCyclinder();
             
-            if (Vector3.Dot(Enemy.transform.forward, 
-                Enemy.RideCylinderReference.TopCylinder.transform.up) < -Enemy.GetCharacterForseeRatio())
+            // Debugger.DebugLog($"Current = {currentDotProductWithBottomCylinder} , Previous = {_previousDotProductWithTopCyclinder}" );
+            
+            if (_previousDotProductWithTopCyclinder > currentDotProductWithTopCylinder)
             {
-                PerformCrouch();
+                if (currentDotProductWithTopCylinder < -Enemy.GetCharacterForseeRatio())
+                {
+                    PerformCrouch();
+                    return;
+                }
+                
             }
-            else if (Vector3.Dot(Enemy.transform.forward, 
-                Enemy.RideCylinderReference.BottomCylinder.transform.up) < -Enemy.GetCharacterForseeRatio())
+
+            if (_previousDotProductWithBottomCyclinder > currentDotProductWithBottomCylinder)
             {
-                PerformJump();
+                if (currentDotProductWithBottomCylinder < -Enemy.GetCharacterForseeRatio())
+                {
+                    PerformJump();
+                    return;
+                }
             }
+
+            _previousDotProductWithTopCyclinder = currentDotProductWithTopCylinder;
+            _previousDotProductWithBottomCyclinder = currentDotProductWithBottomCylinder;
         }
 
         public override void PhysicsUpdate()

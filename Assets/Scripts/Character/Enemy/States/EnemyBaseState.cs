@@ -24,5 +24,21 @@ namespace Meltdown
         public abstract void PhysicsUpdate();
 
         public abstract void Exit();
+
+        protected float GetDotProductWithTopCyclinder()
+        {
+            float withTopCyclinderDotProduct = Vector3.Dot(Enemy.transform.forward,
+                Enemy.RideCylinderReference.TopCylinder.transform.up);
+
+            return withTopCyclinderDotProduct;
+        }
+        
+        protected float GetDotProductWithBottomCyclinder()
+        {
+            float withBottomCyclinderDotProduct = Vector3.Dot(Enemy.transform.forward, 
+                Enemy.RideCylinderReference.BottomCylinder.transform.up);
+
+            return withBottomCyclinderDotProduct;
+        }
     }
 }

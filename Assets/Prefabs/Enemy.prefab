@@ -109,7 +109,7 @@ MonoBehaviour:
   _jumpForce: 5
   _maxSpeed: 5
   colliderTransform: {fileID: 1004270698120072056}
-  characterForseeRatio: 0.95
+  characterForseeRatio: 0.85
 --- !u!1 &6940284580562600825
 GameObject:
   m_ObjectHideFlags: 0
