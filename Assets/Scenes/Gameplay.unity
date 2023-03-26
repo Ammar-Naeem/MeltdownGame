@@ -612,15 +612,11 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4505583643356362305, guid: 97928f8247b774b96ad3151b2a3fcd52, type: 3}
   playerSpawnPoint: {fileID: 1128935215}
   enemySpawnPoints:
-  - {fileID: 849720244}
   - {fileID: 540616027}
-  - {fileID: 676022315}
   - {fileID: 228323059}
-  - {fileID: 552610039}
   - {fileID: 1110002284}
-  - {fileID: 19175994}
-  addPlayer: 0
-  maximumCharactersToAdd: 0
+  addPlayer: 1
+  maximumCharactersToAdd: 8
 --- !u!1 &418156731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1478,7 @@ MonoBehaviour:
     TopCylinder: {fileID: 2014777849}
     BottomCylinder: {fileID: 194609406}
   speed: 300
-  maximumVelocity: 2
+  maximumVelocity: 1.5
 --- !u!54 &1851752053
 Rigidbody:
   m_ObjectHideFlags: 0
