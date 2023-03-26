@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meltdown;
+using MyNamespace;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -67,5 +68,30 @@ public class GameManager : MonoBehaviour
         _characters.Add(character);
     }
 
-    
+    public void RemoveCharacterFromList(Character character)
+    {
+        if (!_characters.Contains(character))
+        {
+            Debugger.DebugLogError("Character not found!! Error");
+            return;
+        }
+
+        _characters.Remove(character);
+        
+        CheckIfCharacterIsPlayerGameEnd(character);
+    }
+
+    private void CheckIfCharacterIsPlayerGameEnd(Character character)
+    {
+        if (character is Player)
+        {
+            Invoke(nameof(CallEndGame), 2);
+        }
+    }
+
+    private static void CallEndGame()
+    {
+        OnGameEnd?.Invoke();
+        Time.timeScale = 0;
+    }
 }

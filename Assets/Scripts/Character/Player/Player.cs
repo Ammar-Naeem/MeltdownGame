@@ -10,9 +10,9 @@ namespace Meltdown
         //Getters
         public PlayerStateFactory GetPlayerStateFactory() => _playerStateFactory;
         
-        public override void Initialize()
+        public override void Initialize(GameManager gameManager)
         {
-            base.Initialize();
+            base.Initialize(gameManager);
             
             CharacterPhysicalStateMachine.ChangeState(_playerStateFactory.GetPlayerIdleState());
         }

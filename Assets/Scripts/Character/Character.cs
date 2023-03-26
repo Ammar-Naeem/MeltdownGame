@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Meltdown
 {
-    public class Character : MonoBehaviour, IInitializer
+    public class Character : MonoBehaviour, IGameManagerInitializer
     {
         [Header("Movement Values:")] 
         [SerializeField]                     private float _jumpForce     = 5    ;
@@ -23,6 +23,7 @@ namespace Meltdown
         private Vector3 _colliderSizeAtStart;
         private Vector3 _colliderChildSizeAtStart;
         private RideCylinderReference _rideCylinderReference;
+        private GameManager _gameManager;
 
         //State controller
         protected IBaseStateMachine CharacterPhysicalStateMachine;
@@ -49,13 +50,10 @@ namespace Meltdown
             get => _rideCylinderReference;
         }
 
-        private void Start()
+        public virtual void Initialize(GameManager gameManager)
         {
-            Initialize();
-        }
-
-        public virtual void Initialize()
-        {
+            _gameManager = gameManager;
+            
             Animator characterAnimator  = GetComponentInChildren<Animator>();
             _characterRigidbody = GetComponent<Rigidbody>();
             
@@ -85,6 +83,10 @@ namespace Meltdown
             if (other.gameObject.CompareTag("Ride"))
             {
                 _characterRigidbody.constraints = RigidbodyConstraints.None;
+            }
+            else if (other.gameObject.CompareTag("Ground"))
+            {
+                _gameManager.RemoveCharacterFromList(this);
             }
         }
     }
