@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
     {
         if (character is Player)
         {
-            Invoke(nameof(CallEndGame), 2);
+            Invoke(nameof(CallEndGame), 1);
         }
     }
 

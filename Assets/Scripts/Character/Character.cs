@@ -87,6 +87,7 @@ namespace Meltdown
             else if (other.gameObject.CompareTag("Ground"))
             {
                 _gameManager.RemoveCharacterFromList(this);
+                gameObject.SetActive(false);
             }
         }
     }
